@@ -1,0 +1,36 @@
+"strange words" from https://github.com/jasonjoh/ruby_outlook/blob/master/lib/run-tests.rb
+---
+
+::
+.new
+
+    as in
+    outlook_client = RubyOutlook::Client.new
+
+require
+
+JSON.parse(foo)
+
+foo = bar, baz
+
+
+---
+"strange words" from https://github.com/wjp2013/igetui-ruby/blob/master/lib/igetui/validate.rb
+---
+
+module
+
+raise
+
+[:foo]
+["foo"]
+
+    as in
+    if validate_length(args, :loc_key)
+      alertMap["loc-key"] = args[:loc_key]
+      if validate_length(args, :loc_args)
+        alertMap["loc-args"] = args[:loc_args].split(", ")
+      end
+    elsif validate_length(nil, args[:message])
+      alertMap["body"] = args[:message]
+    end

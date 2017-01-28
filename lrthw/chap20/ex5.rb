@@ -38,9 +38,9 @@ current_line = 1
 print_a_line(current_line, current_file)
 
 # redeclaring a variable and incrementing its value
-current_line = current_line + 1 # current_line now == 2
+current_line += 1 # current_line now == 2
 # calling the function as before but the value of the variable will have changed
 print_a_line(current_line, current_file) # print_a_line function's first argument is interpreted as the value of the function's local line_count variable
 
-current_line = current_line + 1 # current_line now == 3
+current_line += 1 # current_line now == 3
 print_a_line(current_line, current_file)

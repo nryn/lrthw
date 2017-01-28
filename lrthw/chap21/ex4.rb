@@ -1,21 +1,21 @@
 def add(a, b)
   puts "ADDING #{a} + #{b}"
-  return a + b
+  a + b
 end
 
 def subtract(a, b)
   puts "SUBTRACTING #{a} - #{b}"
-  return a - b
+  a - b
 end
 
 def multiply(a, b)
   puts "MULTIPLYING #{a} * #{b}"
-  return a * b
+  a * b
 end
 
 def divide(a, b)
   puts "DIVIDING #{a} / #{b}"
-  return a / b
+  a / b
 end
 
 
@@ -35,3 +35,20 @@ puts "Here is a puzzle."
 what = add(age, subtract(height, multiply(weight, divide(iq, 2))))
 
 puts "That becomes: #{what}. Can you do it by hand?"
+
+# Formula
+
+# a + (b - (c * (d/e)))
+# 35 + (74 - (180 * (50 / 2)))
+
+# Now the inverse - writing a Formula
+
+# a / (b - (c * (d - (e * f)))
+
+# and calling it as a function
+
+puts "Let's make one of our own."
+
+puzzle_2 = divide(age, subtract(height, multiply(weight, subtract(iq, multiply(iq, weight)))))
+
+puts "The answer to puzzle_2 is #{puzzle_2}"
