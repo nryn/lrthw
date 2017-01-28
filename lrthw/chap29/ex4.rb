@@ -1,7 +1,10 @@
-people = 20
-cats = 30
-dogs = 15
+people = 23
+cats = 320
+dogs = 13
 
+if people < dogs || (cats > dogs || people < cats)
+  puts "Something is something compared to something I guess."
+end
 
 if people < cats
   puts "Too many cats! The world is doomed!"
