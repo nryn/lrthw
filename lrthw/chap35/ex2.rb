@@ -1,23 +1,45 @@
+$prompt = "> "
+
 def gold_room
   puts "This room is full of gold. How much do you take?"
-
-  print "> "
+  print $prompt
   choice = $stdin.gets.chomp
+  # this line had a bug, so I fixed it
+  /(?<money_taken>[0-9\.]+)/ =~ choice
 
-  # this line has a bug, so fix it
-  if choice.include?("0") || choice.include?("1")
-    how_much = choice.to_i
-  else
-    dead("Man, learn to type a number.")
-  end
+  if money_taken == nil
+    # Thought it was harsh to kill the player...
+    # dead("Man, learn to type a number.")
+    puts "You didn't type a number! Try again..."
+    gold_room
 
-  if how_much < 50
-    puts "Nice, you're not greedy, you win!"
-    exit(0)
   else
-    dead("You greedy bastard!")
+
+    if money_taken.to_f < 50.0
+      puts "Nice, you're not greedy, you win!"
+      exit(0)
+
+    else
+      dead("You greedy bastard!")
+
+    end
   end
 end
+
+
+# ALTERNATIVE TO ABOVE BUGFIX:
+#
+#  if choice == "0" || choice.to_i != 0
+#    if choice.to_i < 50
+#      puts "Nice, you're not greedy, you win!"
+#      exit(0)
+#    else
+#      dead("You greedy bastard!")
+#    end
+#  else
+#    dead("Man, learn to type a number.")
+#  end
+# end
 
 
 def bear_room
@@ -28,20 +50,25 @@ def bear_room
   bear_moved = false
 
   while true
-    print "> "
+    print $prompt
     choice = $stdin.gets.chomp
 
     if choice == "take honey"
       dead("The bear looks at you then slaps your face off.")
+
     elsif choice == "taunt bear" && !bear_moved
       puts "The bear has moved from the door. You can go through it now."
       bear_moved = true
+
     elsif choice == "taunt bear" && bear_moved
       dead("The bear gets pissed off and chews your leg off.")
+
     elsif choice == "open door" && bear_moved
       gold_room
+
     else
       puts "I got no idea what that means."
+
     end
   end
 end
@@ -52,16 +79,20 @@ def cthulu_room
   puts "He, it, whatever stares at you and you go insane."
   puts "Do you flee for life or eat your head?"
 
-  print "> "
+  print $prompt
   choice = $stdin.gets.chomp
 
   if choice.include? "flee"
     start
+
   elsif choice.include? "head"
     dead("Well that was tasty!")
+
   else
     cthulu_room
+
   end
+
 end
 
 
@@ -75,15 +106,18 @@ def start
   puts "There is a door to your right and left."
   puts "Which one do you take?"
 
-  print "> "
+  print $prompt
   choice = $stdin.gets.chomp
 
   if choice == "left"
     bear_room
+
   elsif choice == "right"
     cthulu_room
+
   else
     dead("You stumble around the room until you starve.")
+
   end
 end
 

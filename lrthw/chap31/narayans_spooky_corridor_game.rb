@@ -16,7 +16,7 @@ system('clear')
 
 # Game screen
 puts spacer
-while lifecount > 0 do
+while lifecount.to_i > 0 do
   lifecountdisplay = "Lives remaining: #{lifecount}\n\n"
   if lifecount == initiallifecount
     puts lifecountdisplay
@@ -95,9 +95,7 @@ while lifecount > 0 do
         puts "It was enough."
         puts "Rest in Peace."
         puts spacer
-        lifecount = "Infinite."
-        puts lifecountdisplay
-        puts spacer
+        exit(0)
       end
     else
       system('clear')
@@ -144,8 +142,8 @@ while lifecount > 0 do
     system('clear')
     puts spacer
     puts "You instantly beat the game."
-    lifecount = "???"
-    puts lifecountdisplay
+    puts spacer
+    exit(0)
   end
 end
 system('clear')
